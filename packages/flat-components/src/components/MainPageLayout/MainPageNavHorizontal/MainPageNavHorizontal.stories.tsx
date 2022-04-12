@@ -60,18 +60,6 @@ Overview.args = {
     ],
     rightMenu: [
         {
-            key: "download",
-            icon: () => <DownloadOutlined style={rightMenuStyles} />,
-            title: "下载",
-            route: "/download",
-        },
-        {
-            key: "source-code",
-            icon: () => <CloudOutlined style={rightMenuStyles} />,
-            title: "源码",
-            route: "/github",
-        },
-        {
             key: "userConfig",
             icon: () => <SettingOutlined style={rightMenuStyles} />,
             title: "设置",

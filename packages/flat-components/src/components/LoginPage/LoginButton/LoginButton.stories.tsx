@@ -20,7 +20,7 @@ export const Overview: Story<LoginButtonProps> = () => {
 
     return (
         <>
-            <LoginButton provider="wechat" text={i18n.t("login-wechat")} onLogin={handleLogin} />
+            {/* <LoginButton provider="wechat" text={i18n.t("login-wechat")} onLogin={handleLogin} />*/}
             <LoginButton provider="github" text={i18n.t("login-github")} onLogin={handleLogin} />
         </>
     );

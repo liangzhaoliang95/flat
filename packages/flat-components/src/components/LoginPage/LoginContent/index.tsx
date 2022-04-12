@@ -22,10 +22,6 @@ export interface LoginContentProps {
 export const LoginContent: React.FC<LoginContentProps> = ({
     showQRCode,
     handleHideQRCode,
-    agreementChecked,
-    handleClickAgreement,
-    privacyURL,
-    serviceURL,
     renderButtonList,
     renderQRCode = () => <img src={QRCodeSVG} />,
 }) => {
@@ -50,28 +46,12 @@ export const LoginContent: React.FC<LoginContentProps> = ({
                     ) : (
                         <>
                             <div className="login-content-logo">
-                                <img src={logoSVG} />
                                 <span className="login-content-title">{t("app-welcome")}</span>
                                 <span className="login-content-text">
                                     {t("online-interaction-to-synchronize-ideas")}
                                 </span>
                             </div>
                             <div className="login-content-channel">{renderButtonList()}</div>
-                            <div className="login-content-agreement">
-                                <Checkbox
-                                    defaultChecked={agreementChecked}
-                                    onClick={handleClickAgreement}
-                                >
-                                    {t("have-read-and-agree")}{" "}
-                                    <a href={privacyURL} target="_blank">
-                                        {t("privacy-agreement")}
-                                    </a>{" "}
-                                    {t("and")}{" "}
-                                    <a href={serviceURL} target="_blank">
-                                        {t("service-policy")}
-                                    </a>
-                                </Checkbox>
-                            </div>
                         </>
                     )}
                 </div>

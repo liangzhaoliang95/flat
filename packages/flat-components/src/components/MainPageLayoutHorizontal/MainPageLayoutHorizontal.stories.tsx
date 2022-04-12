@@ -61,12 +61,6 @@ Overview.args = {
             title: "个人设置",
             route: "/config",
         },
-        {
-            key: "getGitHubCode",
-            icon: () => <CloudOutlined />,
-            title: "获取源码",
-            route: "/github",
-        },
     ],
     popMenu: [
         {

@@ -3,7 +3,6 @@ import "./style.less";
 import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { observer } from "mobx-react-lite";
-import { message } from "antd";
 import { LoginButton, LoginButtonProviderType, LoginPanel } from "flat-components";
 import { LoginDisposer } from "./utils";
 import { githubLogin } from "./githubLogin";
@@ -121,11 +120,7 @@ export const LoginPage = observer(function LoginPage() {
                     }
                 }
             };
-            if (agreement) {
-                doLogin(loginChannel);
-            } else {
-                void message.info(i18n.t("agree-terms"));
-            }
+            doLogin(loginChannel);
         },
         [agreement, globalStore, i18n, pushHistory, roomUUID],
     );
@@ -147,19 +142,6 @@ export const LoginPage = observer(function LoginPage() {
         } else {
             return (
                 <>
-                    {process.env.FLAT_REGION === "US" ? (
-                        <LoginButton
-                            provider="google"
-                            text={i18n.t("login-google")}
-                            onLogin={handleLogin}
-                        />
-                    ) : (
-                        <LoginButton
-                            provider="wechat"
-                            text={i18n.t("login-wechat")}
-                            onLogin={handleLogin}
-                        />
-                    )}
                     <LoginButton
                         provider="github"
                         text={i18n.t("login-github")}
@@ -178,7 +160,7 @@ export const LoginPage = observer(function LoginPage() {
         <div className="login-page-container">
             <LoginPanel
                 agreementChecked={agreement}
-                handleClickAgreement={() => setAgreement(!agreement)}
+                handleClickAgreement={() => setAgreement(true)}
                 handleHideQRCode={() => setWeChatLogin(false)}
                 privacyURL={privacyURL}
                 renderButtonList={() => renderButtonList(urlParams)}

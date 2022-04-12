@@ -1,9 +1,7 @@
 /* eslint react/display-name: off */
 // import deviceSVG from "./icons/device.svg";
 // import deviceActiveSVG from "./icons/device-active.svg";
-import downloadSVG from "./icons/download.svg";
 import settingSVG from "./icons/setting.svg";
-import gitHubSVG from "./icons/github.svg";
 import feedbackSVG from "./icons/feedback.svg";
 import logoutSVG from "./icons/logout.svg";
 
@@ -14,7 +12,6 @@ import { useTranslation } from "react-i18next";
 import { routeConfig, RouteNameType } from "../../route-config";
 import { GlobalStoreContext } from "../StoreProvider";
 import { generateAvatar } from "../../utils/generate-avatar";
-import { FLAT_DOWNLOAD_URL } from "../../constants/process";
 
 export interface MainPageLayoutHorizontalContainerProps {
     subMenu?: MainPageLayoutItem[];
@@ -44,18 +41,6 @@ export const MainPageLayoutHorizontalContainer: React.FC<
     ];
 
     const rightMenu: MainPageLayoutItem[] = [
-        {
-            key: "download",
-            icon: (): React.ReactNode => <img src={downloadSVG} />,
-            title: t("nav-download"),
-            route: FLAT_DOWNLOAD_URL,
-        },
-        {
-            key: "getGitHubCode",
-            icon: (): React.ReactNode => <img src={gitHubSVG} />,
-            title: t("nav-source-code"),
-            route: "https://github.com/netless-io/flat/",
-        },
         {
             key: routeConfig[RouteNameType.GeneralSettingPage].path,
             icon: (): React.ReactNode => <img src={settingSVG} />,

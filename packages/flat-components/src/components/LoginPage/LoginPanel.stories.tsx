@@ -43,10 +43,10 @@ export const PlayableExample: Story<LoginPanelProps> = () => {
 
     function renderButtonList(): React.ReactNode {
         const handleLogin = (loginChannel: LoginButtonProviderType): void => {
-            if (!agreement) {
-                void message.info(i18n.t("agree-terms"));
-                return;
-            }
+            // if (!agreement) {
+            //     void message.info(i18n.t("agree-terms"));
+            //     return;
+            // }
 
             switch (loginChannel) {
                 case "wechat": {
@@ -67,11 +67,11 @@ export const PlayableExample: Story<LoginPanelProps> = () => {
 
         return (
             <>
-                <LoginButton
-                    provider={"wechat"}
-                    text={i18n.t("login-wechat")}
-                    onLogin={handleLogin}
-                />
+                {/* <LoginButton*/}
+                {/*    provider={"wechat"}*/}
+                {/*    text={i18n.t("login-wechat")}*/}
+                {/*    onLogin={handleLogin}*/}
+                {/*/ >*/}
                 <LoginButton
                     provider={"github"}
                     text={i18n.t("login-github")}
@@ -85,7 +85,7 @@ export const PlayableExample: Story<LoginPanelProps> = () => {
         <div className="vh-100">
             <LoginPanel
                 agreementChecked={agreement}
-                handleClickAgreement={() => setAgreement(!agreement)}
+                handleClickAgreement={() => setAgreement(true)}
                 handleHideQRCode={handleHideQRCode}
                 renderButtonList={renderButtonList}
                 showQRCode={isWeChatLogin}

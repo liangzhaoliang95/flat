@@ -19,7 +19,7 @@ export const Overview: Story<LoginContentProps> = () => {
     const [agreement, updateAgreement] = useState<boolean>(false);
 
     const handleLogin = useCallback(() => {
-        agreement === false && void message.info(i18n.t("agree-terms"));
+        false && void message.info(i18n.t("agree-terms"));
     }, [agreement, i18n]);
 
     const { t } = useTranslation();
@@ -27,7 +27,7 @@ export const Overview: Story<LoginContentProps> = () => {
     function renderButtonList(): React.ReactNode {
         return (
             <>
-                <LoginButton provider={"wechat"} text={t("login-wechat")} onLogin={handleLogin} />
+                {/* <LoginButton provider={"wechat"} text={t("login-wechat")} onLogin={handleLogin} />*/}
                 <LoginButton provider={"github"} text={t("login-github")} onLogin={handleLogin} />
             </>
         );
@@ -37,7 +37,7 @@ export const Overview: Story<LoginContentProps> = () => {
         <div className="vh-75">
             <LoginContent
                 agreementChecked={agreement}
-                handleClickAgreement={() => updateAgreement(!agreement)}
+                handleClickAgreement={() => updateAgreement(true)}
                 handleHideQRCode={() => updateShowQRCode(false)}
                 renderButtonList={renderButtonList}
                 showQRCode={showQRCode}

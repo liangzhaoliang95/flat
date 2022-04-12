@@ -4,7 +4,6 @@ import React, { useCallback, useContext, useEffect, useRef, useState } from "rea
 import { constants } from "flat-types";
 import { useTranslation } from "react-i18next";
 import { observer } from "mobx-react-lite";
-import { message } from "antd";
 import { LoginPanel, LoginButton, LoginButtonProviderType } from "flat-components";
 import { githubLogin } from "./githubLogin";
 import WeChatLogin from "./WeChatLogin";
@@ -98,11 +97,7 @@ export const LoginPage = observer(function LoginPage() {
                     }
                 }
             };
-            if (agreementChecked) {
-                doLogin(loginChannel);
-            } else {
-                void message.info(i18n.t("agree-terms"));
-            }
+            doLogin(loginChannel);
         },
         [agreementChecked, globalStore, i18n, pushHistory],
     );
@@ -113,19 +108,6 @@ export const LoginPage = observer(function LoginPage() {
     function renderButtonList(): React.ReactNode {
         return (
             <>
-                {process.env.FLAT_REGION === "US" ? (
-                    <LoginButton
-                        provider="google"
-                        text={i18n.t("login-google")}
-                        onLogin={handleLogin}
-                    />
-                ) : (
-                    <LoginButton
-                        provider="wechat"
-                        text={i18n.t("login-wechat")}
-                        onLogin={handleLogin}
-                    />
-                )}
                 <LoginButton
                     provider="github"
                     text={i18n.t("login-github")}
@@ -143,7 +125,7 @@ export const LoginPage = observer(function LoginPage() {
         <div className="login-page-container">
             <LoginPanel
                 agreementChecked={agreementChecked}
-                handleClickAgreement={() => setAgreementChecked(!agreementChecked)}
+                handleClickAgreement={() => setAgreementChecked(true)}
                 handleHideQRCode={() => setWeChatLogin(false)}
                 privacyURL={privacyURL}
                 renderButtonList={renderButtonList}

@@ -30,7 +30,6 @@ export const LoginPanel: React.FC<LoginPanelProps> = props => {
                 <div className="login-panel-inner-content-container">
                     <LoginContent {...props} />
                 </div>
-                <span className="login-panel-inner-bottom-text">powered by Agora</span>
             </div>
         </div>
     );
