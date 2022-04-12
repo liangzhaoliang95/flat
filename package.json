@@ -9,6 +9,7 @@
     "storybook": "pnpm --filter flat-components start",
     "start": "node scripts/launch/index.js",
     "start:web": "pnpm --filter flat-web start",
+    "build:web": "pnpm --filter flat-web build",
     "ship": "pnpm --filter renderer-app build && pnpm --filter flat ship",
     "ship:mac": "pnpm --filter renderer-app build && pnpm --filter flat ship:mac",
     "ship:win": "pnpm --filter renderer-app build && pnpm --filter flat ship:win",
