@@ -10,6 +10,7 @@ import { mainPackageJSONPath } from "../../scripts/constants";
 import { autoChooseConfig } from "../../scripts/utils/auto-choose-config";
 
 export default defineConfig({
+    server: { port: 3001 },
     plugins: [
         react(),
         !process.env.noLegacy && legacy(),
